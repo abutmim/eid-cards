@@ -1,19 +1,5 @@
-@font-face {
-  font-family: 'Amiri';
-  src: url('fonts/Amiri-Regular.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Cairo';
-  src: url('fonts/Cairo-Regular.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Tajawal';
-  src: url('fonts/Tajawal-Regular.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Kufam';
-  src: url('fonts/Kufam-Regular.woff2') format('woff2');
-}
+
+@import url('https://fonts.googleapis.com/css2?family=Amiri&family=Cairo&family=Tajawal&display=swap');
 
 body {
   font-family: 'Cairo', sans-serif;
@@ -22,22 +8,13 @@ body {
   background-color: #f9f9f9;
   padding: 20px;
 }
+
 h1 {
   color: #006699;
+  font-family: 'Amiri', serif;
 }
-a.button {
-  display: inline-block;
-  margin: 10px;
-  padding: 12px 24px;
-  background-color: #00bcd4;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 18px;
-}
-img.thumb {
-  width: 300px;
-  margin-bottom: 10px;
-  border: 2px solid #ccc;
-  border-radius: 10px;
+
+label, select, input, button, a {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 16px;
 }
