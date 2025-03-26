@@ -7,7 +7,7 @@ function generateImage(designNumber) {
   img.src = `images/design${designNumber}.jpg`;
 
   img.onload = function () {
-    // تحميل الخط أولاً قبل الرسم
+    // التأكد من تحميل الخط قبل الرسم
     document.fonts.load(`36px ${selectedFont}`).then(() => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
