@@ -30,7 +30,7 @@
 <button onclick="generateImage(1); showShareInstructions();">عرض البطاقة</button>
 <a class="button" href="index.html">↩ العودة للرئيسية</a>
 <br/><br/>
-<canvas height="1080" id="canvas" width="1350"></canvas>
+<canvas height="1350" id="canvas" width="1080"></canvas>
 
 
 <br/>
@@ -46,20 +46,8 @@ function showShareInstructions() {
 <div style="margin-top: 20px;">
 <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fabutmim.github.io%2Ft1d-eid-cards%2Fdesign1.html&amp;count_bg=%23006699&amp;title_bg=%23000000&amp;icon=github.svg&amp;title=الزيارات&amp;edge_flat=false"/>
 </div>
-<div style="margin-top: 40px; text-align: center;">
-<img alt="فضاء السكري النوع الأول" src="images/logo-fadaa-small.png" style="height: 50px; margin: 10px;"/>
-<img alt="جمعية السكري النوع الأول" src="images/logo-t1d-small.png" style="height: 60px; margin: 10px;"/><br/>
-<small style="color: #888;">© 2025 جمعية السكري النوع الأول - فضاء السكري النوع الأول</small>
-</div>
-<script>
-function updateShareLinks() {
-  const pageUrl = window.location.href;
-  const message = encodeURIComponent(`بطاقتي لعيد الفطر مع #فضاء_السكري_النوع_الأول 🎉\n#السكري_النوع_الأول #عيد_مبارك\n@T1D_sa @T1D_Space`);
-  document.getElementById("xShare").href = `https://twitter.com/intent/tweet?text=${message}%0A${encodeURIComponent(pageUrl)}`;
-  document.getElementById("whatsappShare").href = `https://wa.me/?text=${message}%0A${encodeURIComponent(pageUrl)}`;
-}
-window.onload = updateShareLinks;
-</script>
+
+
   <footer>
     © 2025 جميع الحقوق محفوظة لأبو تميم
   </footer>
