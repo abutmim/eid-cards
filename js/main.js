@@ -18,4 +18,8 @@ function generateImage(designNumber) {
       document.getElementById('downloadBtn').style.display = 'inline-block';
     });
   };
+
+      document.getElementById('sharingButtons').style.display = 'block';
+    });
+  };
 }
