@@ -1,3 +1,4 @@
+
 function generateImage(designNumber) {
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
@@ -7,7 +8,7 @@ function generateImage(designNumber) {
   img.src = `images/design${designNumber}.jpg`;
 
   img.onload = function () {
-    // التأكد من تحميل الخط قبل الرسم
+    // تأكد من تحميل الخط قبل الرسم
     document.fonts.load(`36px ${selectedFont}`).then(() => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
