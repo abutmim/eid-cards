@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Amiri&family=Cairo&family=Tajawal&display=swap');
 
 body {
-  font-family: 'Cairo', sans-serif;
+  font-family: 'Tajawal', sans-serif;
   text-align: center;
   direction: rtl;
   background-color: #f9f9f9;
@@ -12,7 +12,7 @@ body {
 
 h1 {
   color: #006699;
-  font-family: 'Amiri', serif;
+  font-family: 'Tajawal', sans-serif;
   font-size: 24px;
   margin-bottom: 20px;
 }
