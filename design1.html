@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
   <title>تصميم 1</title>
-  <link href="style.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>اكتب اسمك واختر الخط</h1>
@@ -14,7 +13,6 @@
     <option value="Amiri">Amiri</option>
     <option value="Cairo" selected>Cairo</option>
     <option value="Tajawal">Tajawal</option>
-    <option value="Kufam">Kufam</option>
   </select>
   <br><br>
   <button onclick="generateImage(1)">عرض البطاقة</button>
@@ -22,6 +20,6 @@
   <canvas id="canvas" width="800" height="600"></canvas>
   <br>
   <a id="downloadBtn" style="display:none;" download="بطاقة_العيد.png" class="button">تحميل البطاقة</a>
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
