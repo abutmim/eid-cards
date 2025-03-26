@@ -7,8 +7,15 @@
   <link href="style.css" rel="stylesheet">
 </head>
 <body>
-  <h1>اكتب اسمك ليظهر على البطاقة</h1>
-  <input type="text" id="nameInput" placeholder="اكتب اسمك هنا">
+  <h1>اكتب اسمك واختر الخط</h1>
+  <input type="text" id="nameInput" placeholder="اكتب اسمك هنا"><br><br>
+  <label>اختر الخط:</label>
+  <select id="fontSelect">
+    <option value="Amiri">Amiri</option>
+    <option value="Cairo" selected>Cairo</option>
+    <option value="Tajawal">Tajawal</option>
+  </select>
+  <br><br>
   <button onclick="generateImage(3)">عرض البطاقة</button>
   <br><br>
   <canvas id="canvas" width="800" height="600"></canvas>
