@@ -11,6 +11,10 @@
   font-family: 'Tajawal';
   src: url('fonts/Tajawal-Regular.woff2') format('woff2');
 }
+@font-face {
+  font-family: 'Kufam';
+  src: url('fonts/Kufam-Regular.woff2') format('woff2');
+}
 
 body {
   font-family: 'Cairo', sans-serif;
