@@ -1,6 +1,13 @@
+@font-face {
+  font-family: 'Amiri';
+  src: url('fonts/Amiri-Regular.woff2') format('woff2'),
+       url('fonts/Amiri-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 body {
-  font-family: 'Cairo', sans-serif;
+font-family: 'Amiri', sans-serif;
   text-align: center;
   direction: rtl;
   background-color: #f9f9f9;
