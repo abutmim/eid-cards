@@ -27,6 +27,9 @@ function generateImage(designNumber) {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+  
+    canvas.style.display = 'block';
+    
     ctx.font = `bold ${settings.fontSize}px ${selectedFont}`;
     ctx.fillStyle = settings.fontColor;
     ctx.textAlign = 'center';
