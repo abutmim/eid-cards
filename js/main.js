@@ -17,10 +17,10 @@ function generateImage(designNumber) {
 
   const settings = designSettings[designNumber] || { fontSize: 36, fontColor: '#006699', x: canvas.width / 2, y: 500 };
 
-  // نحمّل الخط أولاً ثم نرسم الصورة بعد ذلك
+  // ننتظر تحميل الخط والصورة معًا، وأيضًا التأكد أن كل الخطوط جاهزة بالرندر
   Promise.all([
-    new Promise(resolve => { img.onload = resolve; }),
-    document.fonts.load(`${settings.fontSize}px ${selectedFont}`)
+    new Promise(resolve => img.onload = resolve),
+    document.fonts.ready // تنتظر حتى جميع الخطوط تكون جاهزة للرسم
   ]).then(() => {
     canvas.width = img.width;
     canvas.height = img.height;
