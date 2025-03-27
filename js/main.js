@@ -17,17 +17,10 @@ function generateImage(designNumber) {
 
   const settings = designSettings[designNumber] || { fontSize: 36, fontColor: '#006699', x: canvas.width / 2, y: 500 };
 
-  // ننتظر تحميل الخط والصورة معًا، وأيضًا التأكد أن كل الخطوط جاهزة بالرندر
-  Promise.all([
-    new Promise(resolve => img.onload = resolve),
-    document.fonts.ready // تنتظر حتى جميع الخطوط تكون جاهزة للرسم
-  ]).then(() => {
-    canvas.width = img.width;
-    canvas.height = img.height;
+  img.onload = async function () {
+    await document.fonts.load(`${settings.fontSize}px ${selectedFont}`);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-    canvas.style.display = 'block';
-
     ctx.font = `bold ${settings.fontSize}px ${selectedFont}`;
     ctx.fillStyle = settings.fontColor;
     ctx.textAlign = 'center';
@@ -36,5 +29,5 @@ function generateImage(designNumber) {
     const downloadBtn = document.getElementById('downloadBtn');
     downloadBtn.href = canvas.toDataURL();
     downloadBtn.style.display = 'inline-block';
-  });
+  };
 }
