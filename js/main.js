@@ -22,16 +22,17 @@ function generateImage(designNumber) {
     const settings = designSettings[designNumber] || { fontSize: 36, fontColor: '#006699', x: img.width / 2, y: 500 };
 
     await document.fonts.load(`${settings.fontSize}px ${selectedFont}`);
-    
+
     drawCard();
     setTimeout(drawCard, 100);
 
-    // ✅ تتبع حدث "عرض التصميم"
+    // ✅ تتبع عرض التصميم
     if (typeof gtag === 'function') {
       gtag('event', 'view_design', {
-        'event_category': 'cards',
-        'event_label': `design${designNumber}`,
-        'value': 1
+        event_category: 'cards',
+        event_label: `design${designNumber}`,
+        value: 1,
+        font: selectedFont  // ⬅️ اسم الخط المختار
       });
     }
 
@@ -45,16 +46,17 @@ function generateImage(designNumber) {
       canvas.style.display = 'block';
 
       const downloadBtn = document.getElementById('downloadBtn');
-      downloadBtn.href = canvas.toDataURL("image/png", 1.0); // جودة عالية
+      downloadBtn.href = canvas.toDataURL("image/png", 1.0);
       downloadBtn.style.display = 'inline-block';
 
-      // ✅ تتبع حدث "تحميل البطاقة"
+      // ✅ تتبع تحميل التصميم
       downloadBtn.onclick = () => {
         if (typeof gtag === 'function') {
           gtag('event', 'download_card', {
-            'event_category': 'cards',
-            'event_label': `design${designNumber}`,
-            'value': 1
+            event_category: 'cards',
+            event_label: `design${designNumber}`,
+            value: 1,
+            font: selectedFont  // ⬅️ اسم الخط المختار
           });
         }
       };
