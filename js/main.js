@@ -18,25 +18,32 @@ function generateImage(designNumber) {
 
   const settings = designSettings[designNumber] || { fontSize: 36, fontColor: '#006699', x: canvas.width / 2, y: 500 };
 
-  img.onload = async function () {
-    canvas.width = img.width;
-    canvas.height = img.height;
+img.onload = async function () {
+  canvas.width = img.width;
+  canvas.height = img.height;
 
-    // Wait for fonts to be ready (ensures font is applied on first draw)
-    await document.fonts.ready;
+  // نحمل الخط المطلوب
+  await document.fonts.load(`${settings.fontSize}px ${selectedFont}`);
 
+  // نرسم أول مرة
+  drawCard();
+
+  // إعادة رسم بعد 100ms لضمان تحميل الخط
+  setTimeout(() => {
+    drawCard();
+  }, 100);
+
+  function drawCard() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-  
-    canvas.style.display = 'block';
-    
     ctx.font = `bold ${settings.fontSize}px ${selectedFont}`;
     ctx.fillStyle = settings.fontColor;
     ctx.textAlign = 'center';
     ctx.fillText(name, settings.x, settings.y);
+    canvas.style.display = 'block';
 
     const downloadBtn = document.getElementById('downloadBtn');
     downloadBtn.href = canvas.toDataURL();
     downloadBtn.style.display = 'inline-block';
-  };
-}
+  }
+};
