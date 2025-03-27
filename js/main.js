@@ -47,3 +47,4 @@ img.onload = async function () {
     downloadBtn.style.display = 'inline-block';
   }
 };
+}
