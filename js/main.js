@@ -21,6 +21,18 @@ function generateImage(designNumber) {
 
     const settings = designSettings[designNumber] || { fontSize: 36, fontColor: '#006699', x: img.width / 2, y: 500 };
 
+    // حل Safari - إجبار تحميل الخط
+    const safariFix = document.createElement('div');
+    safariFix.style.fontFamily = selectedFont;
+    safariFix.style.fontSize = `${settings.fontSize}px`;
+    safariFix.style.opacity = '0';
+    safariFix.style.position = 'absolute';
+    safariFix.innerText = '.';
+    document.body.appendChild(safariFix);
+    setTimeout(() => {
+      document.body.removeChild(safariFix);
+    }, 200);
+
     await document.fonts.load(`${settings.fontSize}px ${selectedFont}`);
 
     drawCard();
@@ -32,7 +44,7 @@ function generateImage(designNumber) {
         event_category: 'cards',
         event_label: `design${designNumber}`,
         value: 1,
-        font: selectedFont  // ⬅️ اسم الخط المختار
+        font: selectedFont
       });
     }
 
@@ -49,14 +61,14 @@ function generateImage(designNumber) {
       downloadBtn.href = canvas.toDataURL("image/png", 1.0);
       downloadBtn.style.display = 'inline-block';
 
-      // ✅ تتبع تحميل التصميم
+      // ✅ تتبع التحميل
       downloadBtn.onclick = () => {
         if (typeof gtag === 'function') {
           gtag('event', 'download_card', {
             event_category: 'cards',
             event_label: `design${designNumber}`,
             value: 1,
-            font: selectedFont  // ⬅️ اسم الخط المختار
+            font: selectedFont
           });
         }
       };
