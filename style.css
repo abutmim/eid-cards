@@ -29,7 +29,7 @@ input, select {
   max-width: 300px;
 }
 
-#canvas {
+canvas {
   display: none; /* مخفي مبدئيًا */
   width: 100%;
   height: auto;
