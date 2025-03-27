@@ -37,7 +37,7 @@ function generateImage(designNumber) {
       canvas.style.display = 'block';
 
       const downloadBtn = document.getElementById('downloadBtn');
-      downloadBtn.href = canvas.toDataURL();
+      downloadBtn.href = canvas.toDataURL("image/png", 1.0); // جودة عالية
       downloadBtn.style.display = 'inline-block';
     }
   };
