@@ -1,11 +1,10 @@
-
 function generateImage(designNumber) {
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
   const name = document.getElementById('nameInput').value;
   const selectedFont = document.getElementById('fontSelect').value;
   const img = new Image();
-  img.src = `images/design${designNumber}.jpg`;
+  img.src = images/design${designNumber}.jpg;
 
   const designSettings = {
     1: { fontSize: 28, fontColor: '#feffff', x: canvas.width * 0.7, y: 1155 },
@@ -18,33 +17,31 @@ function generateImage(designNumber) {
 
   const settings = designSettings[designNumber] || { fontSize: 36, fontColor: '#006699', x: canvas.width / 2, y: 500 };
 
-img.onload = async function () {
-  canvas.width = img.width;
-  canvas.height = img.height;
+  img.onload = async function () {
+    canvas.width = img.width;
+    canvas.height = img.height;
 
-  // نحمل الخط المطلوب
-  await document.fonts.load(`${settings.fontSize}px ${selectedFont}`);
-
-  // نرسم أول مرة
-  drawCard();
-
-  // إعادة رسم بعد 100ms لضمان تحميل الخط
-  setTimeout(() => {
-    drawCard();
-  }, 100);
-
-  function drawCard() {
+    await document.fonts.load(${settings.fontSize}px ${selectedFont});
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-    ctx.font = `bold ${settings.fontSize}px ${selectedFont}`;
+    ctx.font = bold ${settings.fontSize}px ${selectedFont};
     ctx.fillStyle = settings.fontColor;
     ctx.textAlign = 'center';
     ctx.fillText(name, settings.x, settings.y);
-    canvas.style.display = 'block';
 
     const downloadBtn = document.getElementById('downloadBtn');
     downloadBtn.href = canvas.toDataURL();
     downloadBtn.style.display = 'inline-block';
-  }
-};
+
+    // إعادة توليد بعد 100 ملي ثانية (اختياري للحل المؤقت)
+    setTimeout(() => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      ctx.font = bold ${settings.fontSize}px ${selectedFont};
+      ctx.fillStyle = settings.fontColor;
+      ctx.textAlign = 'center';
+      ctx.fillText(name, settings.x, settings.y);
+      downloadBtn.href = canvas.toDataURL();
+    }, 100);
+  };
 }
