@@ -46,4 +46,4 @@ img.onload = async function () {
     downloadBtn.href = canvas.toDataURL();
     downloadBtn.style.display = 'inline-block';
   }
-};
+}
