@@ -12,7 +12,7 @@ function generateImage(designNumber) {
 
     const designSettings = {
       1: { fontSize: 28, fontColor: '#feffff', x: img.width * 0.7, y: 1155 },
-      2: { fontSize: 38, fontColor: '#0f4c82', x: img.width / 2, y: 955 },
+      2: { fontSize: 38, fontColor: '#0f4c82', x: img.width / 2, y: 957 },
       3: { fontSize: 34, fontColor: '#333333', x: img.width * 0.3, y: 530 },
       4: { fontSize: 40, fontColor: '#000000', x: 100, y: 480 },
       5: { fontSize: 36, fontColor: '#3366CC', x: img.width / 2, y: 510 },
