@@ -45,3 +45,4 @@ function generateImage(designNumber) {
     }, 100);
   };
 }
+##t
