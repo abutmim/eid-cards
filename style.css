@@ -64,3 +64,20 @@ div {
   padding: 20px;
 }
 
+.footer-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.footer-buttons a.button {
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
