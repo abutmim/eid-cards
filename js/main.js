@@ -18,6 +18,8 @@ function generateImage(designNumber) {
   const settings = designSettings[designNumber] || { fontSize: 36, fontColor: '#006699', x: canvas.width / 2, y: 500 };
 
   img.onload = async function () {
+    canvas.width = img.width;
+    canvas.height = img.height;
     await document.fonts.load(`${settings.fontSize}px ${selectedFont}`);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
