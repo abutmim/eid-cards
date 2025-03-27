@@ -16,7 +16,7 @@ function generateImage(designNumber) {
       3: { fontSize: 55, fontColor: '#333333', x: img.width / 2, y: 1660 },
       4: { fontSize: 40, fontColor: '#000000', x: 300, y: 1680 },
       5: { fontSize: 36, fontColor: '#fefeff', x: img.width / 2, y: 1080 },
-      6: { fontSize: 38, fontColor: '#FF6600', x: img.width - 100, y: 500 }
+      6: { fontSize: 38, fontColor: '#4e615f', x: 1090, y: 880 }
     };
 
     const settings = designSettings[designNumber] || { fontSize: 36, fontColor: '#006699', x: img.width / 2, y: 500 };
