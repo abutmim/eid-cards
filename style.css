@@ -29,11 +29,14 @@ input, select {
   max-width: 300px;
 }
 
-canvas {
+#canvas {
+  display: none; /* مخفي مبدئيًا */
   width: 100%;
-  max-width: 800px;
   height: auto;
+  max-width: 800px;
+  margin: 20px auto;
 }
+
 
 .button, button, a.button {
   background-color: #006699;
