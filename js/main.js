@@ -18,6 +18,9 @@ function generateImage(designNumber) {
   const settings = designSettings[designNumber] || { fontSize: 36, fontColor: '#006699', x: canvas.width / 2, y: 500 };
 
   img.onload = async function () {
+    canvas.width = img.width;
+    canvas.height = img.height;
+
     await document.fonts.load(`${settings.fontSize}px ${selectedFont}`);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
@@ -29,5 +32,16 @@ function generateImage(designNumber) {
     const downloadBtn = document.getElementById('downloadBtn');
     downloadBtn.href = canvas.toDataURL();
     downloadBtn.style.display = 'inline-block';
+
+    // إعادة توليد بعد 100 ملي ثانية (اختياري للحل المؤقت)
+    setTimeout(() => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      ctx.font = `bold ${settings.fontSize}px ${selectedFont}`;
+      ctx.fillStyle = settings.fontColor;
+      ctx.textAlign = 'center';
+      ctx.fillText(name, settings.x, settings.y);
+      downloadBtn.href = canvas.toDataURL();
+    }, 100);
   };
 }
