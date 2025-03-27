@@ -24,8 +24,16 @@ function generateImage(designNumber) {
     await document.fonts.load(`${settings.fontSize}px ${selectedFont}`);
     
     drawCard();
-
     setTimeout(drawCard, 100);
+
+    // ✅ تتبع حدث "عرض التصميم"
+    if (typeof gtag === 'function') {
+      gtag('event', 'view_design', {
+        'event_category': 'cards',
+        'event_label': `design${designNumber}`,
+        'value': 1
+      });
+    }
 
     function drawCard() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -39,6 +47,17 @@ function generateImage(designNumber) {
       const downloadBtn = document.getElementById('downloadBtn');
       downloadBtn.href = canvas.toDataURL("image/png", 1.0); // جودة عالية
       downloadBtn.style.display = 'inline-block';
+
+      // ✅ تتبع حدث "تحميل البطاقة"
+      downloadBtn.onclick = () => {
+        if (typeof gtag === 'function') {
+          gtag('event', 'download_card', {
+            'event_category': 'cards',
+            'event_label': `design${designNumber}`,
+            'value': 1
+          });
+        }
+      };
     }
   };
 }
