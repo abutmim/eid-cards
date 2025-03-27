@@ -8,7 +8,7 @@ function generateImage(designNumber) {
   img.src = `images/design${designNumber}.jpg`;
 
   const designSettings = {
-    1: { fontSize: 36, fontColor: '#006699', x: canvas.width / 0.7, y: 1000 },
+    1: { fontSize: 36, fontColor: '#006699', x: canvas.width / 0.7, y: 600 },
     2: { fontSize: 42, fontColor: '#CC0000', x: canvas.width * 0.7, y: 460 },
     3: { fontSize: 34, fontColor: '#333333', x: canvas.width * 0.3, y: 530 },
     4: { fontSize: 40, fontColor: '#000000', x: 100, y: 480 },
